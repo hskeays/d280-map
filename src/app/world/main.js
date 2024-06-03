@@ -62,12 +62,12 @@ document.querySelectorAll(".svgPath").forEach(function (worldMap) {
                             countryIncome = dataPath[0].incomeLevel.value;
                             countryLong = dataPath[0].longitude;
                             countryLat = dataPath[0].latitude;
-                            nameElement = document.getElementById("namep");
-                            capitalElement = document.getElementById("cap");
-                            regionElement = document.getElementById("reg");
+                            nameElement = document.getElementById("name");
+                            capitalElement = document.getElementById("capitol");
+                            regionElement = document.getElementById("region");
                             incomeElement = document.getElementById("income");
-                            longElement = document.getElementById("long");
-                            latElement = document.getElementById("lat");
+                            longElement = document.getElementById("longitude");
+                            latElement = document.getElementById("latitude");
                             if (nameElement)
                                 nameElement.innerText = countryName;
                             if (capitalElement)

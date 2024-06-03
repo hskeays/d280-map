@@ -21,12 +21,12 @@ document.querySelectorAll<HTMLElement>(".svgPath").forEach(worldMap => {
         const countryLong = dataPath[0].longitude;
         const countryLat = dataPath[0].latitude;
   
-        const nameElement = document.getElementById("namep") as HTMLElement;
-        const capitalElement = document.getElementById("cap") as HTMLElement;
-        const regionElement = document.getElementById("reg") as HTMLElement;
+        const nameElement = document.getElementById("name") as HTMLElement;
+        const capitalElement = document.getElementById("capitol") as HTMLElement;
+        const regionElement = document.getElementById("region") as HTMLElement;
         const incomeElement = document.getElementById("income") as HTMLElement;
-        const longElement = document.getElementById("long") as HTMLElement;
-        const latElement = document.getElementById("lat") as HTMLElement;
+        const longElement = document.getElementById("longitude") as HTMLElement;
+        const latElement = document.getElementById("latitude") as HTMLElement;
   
         if (nameElement) nameElement.innerText = countryName;
         if (capitalElement) capitalElement.innerText = countryCapital;
