@@ -1,27 +1,32 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-world',
   templateUrl: './world.component.html',
   styleUrls: ['./world.component.css']
 })
-export class WorldComponent {
+export class WorldComponent implements AfterViewInit {
   constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   ngAfterViewInit() {
-    const svgPaths = this.el.nativeElement.querySelectorAll('.svgPath');
+    const embedElement = this.el.nativeElement.querySelector('embed');
+    embedElement.addEventListener('load', () => {
+      const svgDoc = embedElement.getSVGDocument();
+      const svgPaths = svgDoc.querySelectorAll('path');
 
-    svgPaths.forEach((svgPath: { id: string; }) => {
-      this.renderer.listen(svgPath, 'mouseover', () => {
-        this.renderer.setStyle(svgPath, 'fill', 'rgb(180,198,123)');
-      });
+      svgPaths.forEach((svgPath: { id: string; }) => {
+        this.renderer.listen(svgPath, 'mouseover', () => {
+          this.renderer.setStyle(svgPath, 'fill', 'rgb(180,198,123)');
+          this.renderer.setStyle(svgPath, 'cursor', 'pointer');
+        });
 
-      this.renderer.listen(svgPath, 'mouseleave', () => {
-        this.renderer.setStyle(svgPath, 'fill', 'black');
-      });
+        this.renderer.listen(svgPath, 'mouseleave', () => {
+          this.renderer.setStyle(svgPath, 'fill', 'black');
+        });
 
-      this.renderer.listen(svgPath, 'click', () => {
-        this.getData(svgPath.id);
+        this.renderer.listen(svgPath, 'click', () => {
+          this.getData(svgPath.id);
+        });
       });
     });
   }
