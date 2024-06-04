@@ -3,25 +3,16 @@
     margin: 0px;
     padding: 0px;
 }
-  
-body {
+
+.main {
+    min-height: calc(100vh - 16px);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    font-family: Verdana, sans-serif;
-}
-
-.s1 {
-    flex: 1;
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     background-color: rgb(141,204,240);
 }
-
-.s2 {
-    min-width: 800px;
+.row-1 {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -41,9 +32,8 @@ path {
     cursor: pointer;
 }
 
-.table-container {
-    display: flex;
-    min-width: 500px;
+.row-2 {
+    width: 600px;
     padding: 20px;
     border-radius: 5px;
     background-color: rgb(244,226,157);
@@ -65,5 +55,5 @@ th, td {
 }
 
 .left-col {
-    width: 40%;
+    width: 30%;
 }
